@@ -82,7 +82,7 @@ public class AboutFragment extends Fragment {
         cv.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity( new Intent( Intent.ACTION_VIEW, Uri.parse( "" ) ) );
+                startActivity( new Intent( Intent.ACTION_VIEW, Uri.parse( "https://raw.githack.com/adrijanasavic/My_Portfolio/master/index.html" ) ) );
             }
         } );
         return view;
