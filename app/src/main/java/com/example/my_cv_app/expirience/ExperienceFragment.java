@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,9 @@ import com.example.my_cv_app.about.AboutFragment;
 public class ExperienceFragment extends Fragment {
 
     public static final String TAG = "EexperienceFragment";
+
+    private RecyclerView recyclerView;
+    private ExperienceAdapter adapter;
 
     public ExperienceFragment() {
     }
@@ -31,6 +35,7 @@ public class ExperienceFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+        adapter = new ExperienceAdapter( getContext() );
         if (getArguments() != null) {
         }
     }
@@ -38,6 +43,9 @@ public class ExperienceFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate( R.layout.fragment_experience, container, false );
+        View view = inflater.inflate( R.layout.fragment_experience, container, false );
+        recyclerView = view.findViewById( R.id.experience_container );
+        recyclerView.setAdapter( adapter );
+        return view;
     }
 }
